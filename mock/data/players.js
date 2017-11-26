@@ -39,6 +39,11 @@ const Players = [
                 type:'道具',
                 amount:5
             },
+            {
+                name:'粮票',
+                type:'道具',
+                amount:5
+            },
         ]
     },
     {
