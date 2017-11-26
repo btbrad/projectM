@@ -94,7 +94,37 @@
                     </template>
                 </el-table-column>
             </el-table>
+            <h3>道具列表</h3>
+            <el-table
+                    :data="tableData"
+                    style="width: 100%" >
+                <el-table-column
+                        prop="UserName"
+                        label="道具名称"
+                        width="180">
+                    <template slot-scope="scope">
+                        <p>{{ scope.row.item[0].name }}</p>
+                    </template>
+                </el-table-column>
+                <el-table-column
+                        prop="UserName"
+                        label="道具类别"
+                        width="180">
+                    <template slot-scope="scope">
+                        <p>{{ scope.row.item[0].type }}</p>
+                    </template>
+                </el-table-column>
+                <el-table-column
+                        prop="UserName"
+                        label="道具数量"
+                        width="180">
+                    <template slot-scope="scope">
+                        <p>{{ scope.row.item[0].amount }}</p>
+                    </template>
+                </el-table-column>
+            </el-table>
         </div>
+
     </div>
 </template>
 

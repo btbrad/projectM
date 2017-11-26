@@ -16,7 +16,14 @@ const Players = [
         serverid:'S2',
         create_time:'2017-11-21 12:00:00',
         last_login_time:'2017-11-25 12:00',
-        status:'正常'
+        status:'正常',
+        item:[
+            {
+                name:'',
+                type:'',
+                amount:''
+            },
+        ]
     },
     {
         bluepandaid:20171122,
@@ -25,7 +32,14 @@ const Players = [
         serverid:'S1',
         create_time:'2017-11-21 12:00:00',
         last_login_time:'2017-11-25 12:00',
-        status:'正常'
+        status:'正常',
+        item:[
+            {
+                name:'粮票',
+                type:'道具',
+                amount:5
+            },
+        ]
     },
     {
         bluepandaid:20171123,
