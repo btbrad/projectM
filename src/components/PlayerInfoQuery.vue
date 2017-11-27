@@ -26,105 +26,6 @@
         </el-form>
         <span class="error">{{ IdError.errorText }}</span>
         <!--<h1>{{this.player}}</h1>-->
-        <div v-if="querySuccess===true" class="result">
-            <!--<p>{{this.tableData}}</p>-->
-            <h3>基本信息</h3>
-            <el-table
-                    :data="tableData"
-                    style="width: 100%" >
-                <el-table-column
-                        prop="UserName"
-                        label="角色名"
-                        width="180">
-                    <template slot-scope="scope">
-                        <p>{{ scope.row.username }}</p>
-                    </template>
-                </el-table-column>
-                <el-table-column
-                        label="角色ID"
-                        width="180">
-                    <template slot-scope="scope">
-                            <p>{{ scope.row.userid }}</p>
-                    </template>
-                </el-table-column>
-                <el-table-column
-                        label="平台ID"
-                        width="180">
-                    <template slot-scope="scope">
-                        <p>{{ scope.row.bluepandaid }}</p>
-                    </template>
-                </el-table-column>
-                <el-table-column
-                        label="所在服务器"
-                        width="180">
-                    <template slot-scope="scope">
-                        <p>{{ scope.row.serverid }}</p>
-                    </template>
-                </el-table-column>
-                <el-table-column
-                        label="建角时间"
-                        width="180">
-                    <template slot-scope="scope">
-                        <p>{{ scope.row.create_time }}</p>
-                    </template>
-                </el-table-column>
-                <el-table-column
-                        label="最后更新时间"
-                        width="180">
-                    <template slot-scope="scope">
-                        <p>{{ scope.row.last_login_time }}</p>
-                    </template>
-                </el-table-column>
-                <el-table-column
-                        label="账号状态"
-                        width="180">
-                    <template slot-scope="scope">
-                        <p>{{ scope.row.status }}</p>
-                    </template>
-                </el-table-column>
-                <el-table-column label="操作">
-                    <template slot-scope="scope">
-                        <el-button
-                                size="mini"
-                                @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-                        <el-button
-                                size="mini"
-                                type="danger"
-                                @click="handleDelete(scope.$index, scope.row)">删除</el-button>
-                    </template>
-                </el-table-column>
-            </el-table>
-            <h3>道具列表</h3>
-            <el-table
-                    :data="tableData"
-                    style="width: 100%" >
-                <el-table-column
-                        prop="UserName"
-                        label="道具名称"
-                        width="180">
-                    <template slot-scope="scope">
-                        <p>{{ scope.row.item[0].name }}</p>
-                    </template>
-                </el-table-column>
-                <el-table-column
-                        prop="UserName"
-                        label="道具类别"
-                        width="180">
-                    <template slot-scope="scope">
-                        <p>{{ scope.row.item[0].type }}</p>
-                    </template>
-                </el-table-column>
-                <el-table-column
-                        prop="UserName"
-                        label="道具数量"
-                        width="180">
-                    <template slot-scope="scope">
-                        <p>{{ scope.row.item[0].amount }}</p>
-                    </template>
-                </el-table-column>
-            </el-table>
-        </div>
-
     </div>
 </template>
 
@@ -175,7 +76,7 @@
             }
         },
         methods:{
-            onQuery(BluePandaID,){
+            onQuery(){
                 if(this.IdError.status){
                     let para = {
                         name:this.UserName,
@@ -189,6 +90,8 @@
                         this.player = res.players;
 //                        this.$router.push('/PlayerInfo');
                         this.tableData=this.player;
+                        sessionStorage.setItem('result',JSON.stringify(this.player));
+                        this.$router.push('/PlayerInfo');
                         console.log(this.tableData);
                         this.querySuccess=true;
                     })
