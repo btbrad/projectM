@@ -86,7 +86,7 @@
                     };
                     console.log(para);
                     reqPlayers(para).then((res)=>{
-                        console.log(res.players);
+                        console.log(res);
                         this.player = res.players;
 //                        this.$router.push('/PlayerInfo');
                         this.tableData=this.player;

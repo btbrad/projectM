@@ -48,6 +48,27 @@ export default {
                     }])
                 },500)
             })
+        });
+
+        mock.onGet('/api/players/ban').reply(config =>{
+            console.log(config);
+            let{userid,status} = config.params;
+            Players.some(u =>{
+                console.log(userid);
+                console.log(status);
+                if (u.userid===userid){
+                    console.log('!!!');
+                    u.status = status;
+                    return true;
+                }else{
+                    return false
+                }
+            })
+            return new Promise((resolve,reject) => {
+                setTimeout(()=>{
+                    resolve([200,{code:200,msg:'封号成功'}])
+                },500)
+            })
         })
     }
 }

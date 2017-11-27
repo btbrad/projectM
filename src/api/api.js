@@ -8,3 +8,7 @@ export const reqLogin = params => {
 export const reqPlayers = params =>{
     return axios.get('/api/players',params).then(res => res.data);
 };
+
+export const reqBanplayer = params =>{
+    return axios.get('/api/players/ban',{params:params})
+}
